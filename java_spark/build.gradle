@@ -1,4 +1,4 @@
-group 'gmtfinance'
+group 'ng5'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'

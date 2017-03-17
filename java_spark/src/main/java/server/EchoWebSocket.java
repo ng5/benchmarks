@@ -18,6 +18,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class EchoWebSocket {
     // Store sessions if you want to, for example, broadcast a message to all users
     private static final Queue<Session> sessions = new ConcurrentLinkedQueue<>();
+
     @OnWebSocketConnect
     public void connected(Session session) {
 
@@ -32,7 +33,7 @@ public class EchoWebSocket {
 
     @OnWebSocketMessage
     public void binaryMessgae(Session session, byte buf[], int offset, int length) {
-        try {            
+        try {
             session.getRemote().sendBytes(ByteBuffer.wrap(buf, offset, length));
         } catch (IOException e) {
             e.printStackTrace();
